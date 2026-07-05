@@ -1,0 +1,12 @@
+cff-version: 1.2.0
+title: "UTU v1: Uncertainty Targeting Unit"
+message: "If you use this work, please cite it using the metadata below."
+type: software
+authors:
+  - family-names: "Pitre"
+    given-names: "Martin"
+email: "teeko001@hotmail.ca"
+version: "1.0"
+date-released: "2026-07-05"
+abstract: "Exploratory research prototype for identifying, prioritizing, and investigating high-value uncertainties."
+license: "MIT"
