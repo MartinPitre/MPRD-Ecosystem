@@ -1,0 +1,11 @@
+# UTA v1 Reference Implementation
+# Dependency requirements
+
+# Standard scientific computing
+numpy>=1.24.0
+
+# Data handling
+pandas>=2.0.0
+
+# Optional visualization support
+matplotlib>=3.7.0
