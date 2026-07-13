@@ -1,0 +1,20 @@
+cff-version: 1.2.0
+message: "If you use UTA (Uncertainty Transformation Analysis) in your work, please cite it using the metadata below."
+title: "UTA v1: Uncertainty Transformation Analysis"
+authors:
+  - family-names: "Pitre"
+    given-names: "Martin"
+version: "1.2"
+date-released: "2026-07-13"
+license: "MIT"
+abstract: >
+  UTA (Uncertainty Transformation Analysis) is a framework for examining
+  how uncertainty changes over time through resolution, complexity,
+  surprise, and memory effects. Version 1.2 represents the baseline
+  theory used during the initial UTA pilot study.
+keywords:
+  - uncertainty
+  - uncertainty analysis
+  - decision science
+  - citizen science
+  - research framework
