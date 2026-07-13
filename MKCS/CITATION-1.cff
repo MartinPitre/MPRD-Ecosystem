@@ -1,0 +1,24 @@
+cff-version: 1.2.0
+message: "If you use or reference MKCS_V1, please cite it using the metadata below."
+title: "MKCS_V1: Meta-Knowledge Coordination System"
+type: software
+authors:
+  - family-names: "Pitre"
+    given-names: "Martin"
+version: "1.0"
+date-released: "2026-07-13"
+license: "MIT"
+abstract: >
+  MKCS_V1 is a conceptual Meta-Knowledge Coordination System within the
+  MPRD Research Ecosystem. It is designed to coordinate knowledge
+  acquisition, learning priorities, uncertainty reduction, exploration,
+  and resource allocation using evidence-based uncertainty signals.
+keywords:
+  - uncertainty
+  - knowledge coordination
+  - adaptive learning
+  - artificial intelligence
+  - decision support
+  - exploration
+  - MPRD
+repository-code: "https://github.com/"
