@@ -1,0 +1,20 @@
+cff-version: 1.2.0
+title: "PBO_V1: Patrol-Based Observation"
+message: "If you use this work, please cite it using the metadata below."
+type: software
+
+authors:
+  - family-names: "Pitre"
+    given-names: "Martin"
+
+version: "1.0"
+date-released: 2026-07-03
+
+license: MIT
+
+keywords:
+  - Observation
+  - Patrol-Based Observation
+  - PBO
+  - UTU
+  - MPRD
