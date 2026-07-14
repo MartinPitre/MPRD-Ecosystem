@@ -1,0 +1,40 @@
+cff-version: 1.2.0
+title: "SUANR_V1"
+message: "If you use this work, please cite it using the metadata below."
+type: software
+
+authors:
+  - family-names: "Pitre"
+    given-names: "Martin"
+
+repository-code: "https://github.com/MartinPitre/MPRD-Ecosystem"
+license: "MIT"
+
+abstract: >
+  SUANR_V1 (Stochastic Uncertainty-Aware Neural Regression) is a
+  research prototype that explores uncertainty-aware prediction
+  through stochastic perturbation methods. The project serves as
+  a preserved baseline within the MPRD Ecosystem and contributes
+  to the study of uncertainty estimation, reliability assessment,
+  and evidence-based research workflows.
+
+keywords:
+  - uncertainty
+  - machine-learning
+  - neural-networks
+  - regression
+  - uncertainty-estimation
+  - research
+
+version: "1.0"
+date-released: "2026-06-22"
+
+preferred-citation:
+  type: software
+  authors:
+    - family-names: "Pitre"
+      given-names: "Martin"
+  title: "SUANR_V1"
+  version: "1.0"
+  year: 2026
+  repository-code: "https://github.com/MartinPitre/MPRD-Ecosystem"
