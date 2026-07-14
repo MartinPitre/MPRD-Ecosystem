@@ -1,0 +1,19 @@
+SUANR v1 Licensing Statement
+
+Copyright (c) 2026 Martin Pitre
+
+Code License
+------------
+MIT License
+
+Documentation License
+---------------------
+Creative Commons Attribution 4.0 International (CC BY 4.0)
+
+Project
+-------
+SUANR v1 – Stochastic Uncertainty-Aware Neural Regression
+
+Version
+-------
+Frozen Baseline Release (2026)
