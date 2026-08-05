@@ -1,0 +1,7 @@
+cff-version: 1.2.0
+title: SUANR v1
+authors:
+  - family-names: Pitre
+    given-names: Martin
+license: "Research and Non-Commercial License"
+message: "Please cite this work. Commercial users must contact the author before use."
