@@ -1,0 +1,5 @@
+Commercial Licensing Notice
+
+The default release of SUANR v1 does not permit commercial use.
+
+If you would like to evaluate, integrate, or deploy SUANR v1 in a commercial environment, please contact Martin Pitre to discuss licensing terms before use.

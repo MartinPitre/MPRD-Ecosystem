@@ -1,0 +1,7 @@
+SUANR v1 Licensing Statement
+
+Code License: Research & Non-Commercial License.
+Documentation: CC BY-NC 4.0.
+
+Commercial use is not authorized under the default licenses.
+Anyone wishing to use SUANR v1 commercially must first obtain written permission from Martin Pitre under a separate commercial license.

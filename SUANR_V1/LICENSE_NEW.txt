@@ -1,0 +1,12 @@
+SUANR v1 Research & Non-Commercial License
+
+Copyright (c) 2026 Martin Pitre
+
+Permission is granted to use, study, reproduce, and modify this software for personal, educational, academic, and non-commercial research purposes, provided this copyright notice is retained.
+
+Commercial use, commercial deployment, sublicensing, sale, or incorporation into commercial products or services is NOT permitted without prior written permission from the copyright holder.
+
+Organizations or individuals wishing to use SUANR v1 commercially must contact Martin Pitre to negotiate a separate commercial license.
+
+No patent rights are granted.
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND.
