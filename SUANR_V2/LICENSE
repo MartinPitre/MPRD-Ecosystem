@@ -1,0 +1,144 @@
+SUANR_V2 RESEARCH AND EVALUATION LICENSE v1.0
+Copyright © 2026 Martin Pitre. All rights reserved.
+
+IMPORTANT: This is a custom source-available license. It is not an
+OSI-approved open-source license and does not grant commercial-use rights.
+
+1. DEFINITIONS
+
+"Software" means the SUANR_V2 source code, algorithms, scripts, configuration
+files, documentation, figures, examples, and other materials distributed with
+this repository, except third-party materials identified separately.
+
+"Licensor" means Martin Pitre, the creator and copyright holder of SUANR_V2.
+
+"Non-Commercial Purpose" means personal study, academic research, education,
+evaluation, testing, reproducibility work, or other activity that is not
+primarily intended for commercial advantage, monetary compensation, revenue
+generation, paid product development, paid service delivery, or internal
+commercial operations.
+
+"Commercial Use" includes, without limitation, use of the Software:
+(a) in or to develop a product or service offered for sale, subscription,
+    licensing fees, advertising revenue, or other compensation;
+(b) by or for a commercial organization when the use materially supports
+    commercial operations, product development, service delivery, or revenue;
+(c) in paid consulting, contracting, hosted services, APIs, software-as-a-service,
+    or commercial model/system development; or
+(d) in any other activity primarily intended for commercial advantage or
+    monetary compensation.
+
+2. LIMITED NON-COMMERCIAL LICENSE GRANT
+
+Subject to the terms of this License, the Licensor grants you a limited,
+worldwide, royalty-free, non-exclusive, non-transferable license to:
+
+(a) view, study, inspect, and execute the Software;
+(b) reproduce the Software for Non-Commercial Purposes;
+(c) modify the Software for Non-Commercial Purposes; and
+(d) share or redistribute copies or modified versions for Non-Commercial
+    Purposes, provided that all conditions in this License are satisfied.
+
+No rights are granted except those expressly stated in this License.
+
+3. ATTRIBUTION
+
+Any permitted copy, redistribution, publication, presentation, derivative work,
+or public description substantially based on SUANR_V2 must provide reasonable
+and prominent attribution to:
+
+    Martin Pitre — Creator of SUANR_V2
+
+Where practical, attribution should also identify the project by name
+("SUANR_V2") and include a link to the original repository.
+
+You may not remove or obscure copyright, authorship, attribution, license, or
+notice information included with the Software.
+
+4. MODIFICATIONS AND DERIVATIVE WORKS
+
+You may create modifications and derivative works only for purposes permitted
+under Section 2.
+
+Modified versions must be clearly identified as modified and must not be
+represented as the original SUANR_V2 implementation or as work created solely
+by another person or organization.
+
+This License does not grant permission to use the name of Martin Pitre to imply
+endorsement, sponsorship, certification, partnership, or approval.
+
+5. COMMERCIAL USE REQUIRES PRIOR WRITTEN PERMISSION
+
+Commercial Use is NOT granted by this License.
+
+Before making any Commercial Use of SUANR_V2, you must obtain prior written
+permission or a separate commercial license from the Licensor.
+
+Merely informing the Licensor after commercial use has begun does not satisfy
+this requirement.
+
+Commercial licensing inquiries should be directed to the contact method
+published by the Licensor in the repository or associated project profile.
+
+6. CITATION
+
+Academic, scientific, technical, or research publications that use, evaluate,
+adapt, benchmark, or materially discuss SUANR_V2 should cite the project using
+the repository's CITATION.cff file where reasonably practicable.
+
+Citation does not replace the attribution requirements of Section 3.
+
+7. THIRD-PARTY MATERIALS
+
+This License applies only to material for which the Licensor has the authority
+to grant rights.
+
+Third-party software, datasets, models, trademarks, documentation, or other
+materials remain subject to their respective licenses, terms, and attribution
+requirements. See THIRD_PARTY_NOTICES.md where applicable.
+
+8. NO TRADEMARK RIGHTS
+
+This License does not grant trademark rights in "SUANR", "SUANR_V2",
+"Martin Pitre", associated logos, or other source-identifying names or marks,
+except for nominative use reasonably necessary to identify the project and
+provide required attribution.
+
+9. RESEARCH AND EXPERIMENTAL STATUS
+
+SUANR_V2 is experimental research software. It is not represented as validated
+for safety-critical, medical, legal, financial, autonomous-control, or other
+high-stakes production use.
+
+10. NO WARRANTY
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO WARRANTIES OF MERCHANTABILITY, FITNESS
+FOR A PARTICULAR PURPOSE, NON-INFRINGEMENT, ACCURACY, RELIABILITY, OR FITNESS
+FOR PRODUCTION USE.
+
+11. LIMITATION OF LIABILITY
+
+TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, THE LICENSOR SHALL NOT BE
+LIABLE FOR ANY CLAIM, DAMAGES, LOSSES, OR OTHER LIABILITY ARISING FROM OR
+RELATED TO THE SOFTWARE OR ITS USE, MODIFICATION, DISTRIBUTION, OR INABILITY
+TO USE THE SOFTWARE.
+
+12. TERMINATION
+
+Your rights under this License terminate automatically if you materially violate
+its terms.
+
+Upon termination, you must cease exercising rights granted by this License.
+Sections concerning ownership, attribution for prior distributions, commercial
+restrictions, warranty disclaimers, and liability limitations survive
+termination to the extent applicable.
+
+13. OTHER RIGHTS RESERVED
+
+All rights not expressly granted in this License are reserved by Martin Pitre.
+
+If you require rights beyond those granted here, including Commercial Use,
+contact the Licensor for separate written permission.
+
+END OF LICENSE

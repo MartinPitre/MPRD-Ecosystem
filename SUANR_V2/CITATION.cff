@@ -1,0 +1,23 @@
+cff-version: 1.2.0
+message: "If you use, evaluate, adapt, benchmark, or discuss SUANR_V2 in research, please cite it using the metadata below."
+title: "SUANR_V2: Uncertainty-Aware Neural Regression"
+type: software
+authors:
+  - family-names: "Pitre"
+    given-names: "Martin"
+version: "2.0"
+date-released: 2026-08-19
+license: "LicenseRef-SUANR-V2-Research-Evaluation-1.0"
+abstract: >-
+  SUANR_V2 is an experimental uncertainty-aware neural regression system
+  combining ensemble-based regression, uncertainty estimation, calibration,
+  prediction intervals, and empirical validation across multiple regression
+  datasets and test conditions.
+keywords:
+  - uncertainty-aware machine learning
+  - neural regression
+  - prediction intervals
+  - uncertainty estimation
+  - calibration
+  - ensemble learning
+  - regression
