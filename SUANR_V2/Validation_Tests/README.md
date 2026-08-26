@@ -1,105 +1,210 @@
-# SUANR_V2 — Validation Test 01
+# SUANR_V2 — Phase 1 Validation Tests
 
-## Predictive Interval Prototype and Feasibility Experiment
+This folder contains the four Phase 1 validation tests for **SUANR_V2**, an experimental uncertainty-aware neural-network regression framework developed by **Martin Pitre**.
 
-SUANR_V2 Validation Test 01 evaluates an early uncertainty-estimation prototype for regression. The experiment uses repeated stochastic predictions to examine whether prediction dispersion contains useful information about model error.
+Phase 1 evaluated whether the framework could:
 
-This test is a **feasibility experiment**, not evidence of a calibrated prediction interval.
+1. Generate experimental predictive intervals.
+2. Calibrate those intervals toward a nominal 90% coverage target.
+3. Maintain calibration across repeated data splits.
+4. Generalize across multiple regression datasets.
 
-## Test objective
+## Phase 1 outcome
 
-The test was designed to determine whether:
+The four tests form a progressive validation sequence. Test 01 established the baseline limitation of uncalibrated stochastic intervals. Test 02 introduced split-conformal calibration. Test 03 evaluated repeated-split stability. Test 04 tested cross-dataset generalization and completed Phase 1.
 
-1. stochastic input perturbations can produce a measurable distribution of predictions;
-2. the standard deviation of those predictions is associated with absolute prediction error;
-3. percentile bounds derived from the stochastic samples provide adequate empirical coverage; and
-4. entropy offers useful additional information about prediction error.
+| Test | Validation objective | Key result | Status |
+|---|---|---|---|
+| Test 01 | 90% predictive-interval feasibility | Raw coverage: 4.49%; interval width: 11.89 | Feasibility result — no calibration claim |
+| Test 02 | Residual calibration and interval reliability | Coverage improved from 10.11% to 87.64% | PASS |
+| Test 03 | Repeated-split calibration stability | Mean calibrated coverage: 90.30% across 30/30 successful runs | PASS |
+| Test 04 | Cross-dataset generalization | Final coverage remained within the declared 85%–95% acceptance range on all three datasets | PASS — Phase 1 completion supported |
 
-## Experimental configuration
+## Validation Test 01 — Predictive Interval Feasibility
 
-| Parameter | Value |
-|---|---:|
-| Test split | 20% |
-| Data-split random state | 42 |
-| Model random state | 42 |
-| Hidden layers | 64, 32 |
-| Stochastic input-noise level | 0.05 |
-| Stochastic samples per observation | 50 |
-| Lower percentile | 5th |
-| Upper percentile | 95th |
-| Nominal interval coverage | 90% |
-| Test observations | 89 |
+### Objective
 
-For each test observation, the prototype generated 50 predictions after applying stochastic input noise. The mean prediction was used as the point estimate. The 5th and 95th percentiles formed the prototype interval, while the standard deviation and entropy of the sampled predictions were recorded as uncertainty measures.
+Determine whether the frozen SUANR_V1 stochastic prediction mechanism could be extended to produce an experimental 90% predictive interval using the 5th and 95th percentiles of repeated predictions.
 
-## Results
+### Method
+
+- Dataset: scikit-learn Diabetes dataset
+- Train/test split: 80%/20%
+- Test observations: 89
+- Hidden layers: `(64, 32)`
+- Stochastic prediction samples: 50
+- Input-noise level: 0.05
+- Experimental bounds: 5th and 95th percentiles
+
+### Results
 
 | Metric | Result |
 |---|---:|
-| Mean absolute error (MAE) | 41.5830 |
-| Root mean squared error (RMSE) | 51.9781 |
-| Empirical interval coverage | 4.49% |
-| Target interval coverage | 90.00% |
+| MAE | 41.5830 |
+| RMSE | 51.9781 |
+| Target coverage | 90.00% |
+| Empirical coverage | 4.49% |
 | Coverage gap | −85.51 percentage points |
 | Mean interval width | 11.8886 |
-| Median interval width | 12.0324 |
-| Minimum interval width | 6.3092 |
-| Maximum interval width | 17.2122 |
+| Pearson uncertainty/error correlation | 0.3396 |
+| Spearman uncertainty/error correlation | 0.2853 |
 
-Only 4 of the 89 test targets fell within the prototype 5th–95th percentile bounds. The resulting 4.49% empirical coverage was far below the nominal 90% target, showing that the intervals were severely underestimated and were not calibrated prediction intervals.
+### Interpretation
 
-## Uncertainty–error relationships
+The stochastic predictions produced measurable dispersion, and uncertainty showed a modest positive relationship with absolute error. However, the percentile interval was far too narrow and did not provide calibrated 90% coverage.
 
-| Comparison | Correlation | p-value |
+This was a scientifically useful feasibility result: it identified the need for an explicit calibration stage and directly motivated Validation Test 02.
+
+## Validation Test 02 — Interval Calibration
+
+### Objective
+
+Evaluate whether split-conformal residual calibration could improve empirical interval coverage toward the intended 90% level without changing point-prediction accuracy.
+
+### Method
+
+- Dataset: scikit-learn Diabetes dataset
+- Split: 265 training, 88 calibration, and 89 test observations
+- Nominal interval coverage: 90%
+- Calibration approach: split-conformal residual calibration
+
+### Results
+
+| Metric | Raw | Calibrated |
 |---|---:|---:|
-| Pearson: uncertainty standard deviation vs. absolute error | 0.3396 | 0.00113 |
-| Spearman: uncertainty standard deviation vs. absolute error | 0.2853 | 0.00673 |
-| Pearson: entropy vs. absolute error | −0.1521 | 0.15484 |
-| Spearman: entropy vs. absolute error | −0.0962 | 0.36989 |
+| Empirical coverage | 10.11% | 87.64% |
+| Mean interval width | 20.8425 | 205.7491 |
 
-The stochastic prediction standard deviation had a modest positive relationship with absolute error under both Pearson and Spearman analysis. In this experiment, observations with greater sampled prediction dispersion tended to have larger prediction errors.
+| Additional metric | Result |
+|---|---:|
+| Coverage gap after calibration | −2.36 percentage points |
+| MAE | 49.9556 |
+| RMSE | 62.8929 |
+| Error–uncertainty correlation | 0.0279 |
+| Error–entropy correlation | 0.1689 |
 
-The entropy measurements did not show a statistically significant relationship with absolute error at the conventional 0.05 significance level.
+### Interpretation
 
-## Interpretation
+Split-conformal calibration substantially improved coverage while leaving point-prediction accuracy unchanged. The improvement was achieved by widening the intervals considerably, establishing interval reliability under the fixed test configuration while also identifying interval sharpness as an area for future research.
 
-Test 01 produced two different findings:
+**Result: PASS**
 
-- **Useful feasibility signal:** stochastic prediction dispersion showed a modest positive association with prediction error.
-- **Failed interval calibration:** the percentile interval covered only 4.49% of test targets instead of the intended 90%.
+## Validation Test 03 — Repeated-Split Calibration Stability
 
-The 5th–95th percentile bounds reflect only the dispersion created by the selected input-noise sampling procedure. They do not capture all sources of predictive uncertainty and must not be described as validated 90% prediction intervals.
+### Objective
 
-The low coverage result provided direct evidence that a formal calibration method was required. This finding motivated subsequent SUANR_V2 work on empirically calibrated uncertainty intervals.
+Determine whether the calibrated results remain stable across repeated random training, calibration, and test splits rather than depending on a single favorable partition.
 
-## Evidence files
+### Method
 
-- `SUANR_V2_Test_01_Evidence.csv` — observation-level targets, predictions, errors, uncertainty measures, percentile bounds, interval widths, and coverage results.
-- `SUANR_V2_Test_01_Summary.json` — test configuration, aggregate metrics, correlation results, and the formal interpretation boundary.
+- Dataset: scikit-learn Diabetes dataset
+- Runs: 30
+- Successful runs: 30
+- Split per run: 60% training, 20% calibration, and 20% testing
+- Ensemble members: 8
+- Nominal interval coverage: 90%
 
-## Reproducibility notes
+### Results
 
-The data split and model initialization both used random state `42`. The retained evidence files provide the complete observation-level outputs and aggregate results needed to audit the reported metrics.
+| Metric | Mean | Range or supporting result |
+|---|---:|---:|
+| MAE | 45.2663 | 38.6250–51.8953 |
+| RMSE | 56.4370 | 49.8377–65.9495 |
+| Raw coverage | 27.34% | 19.10%–39.33% |
+| Calibrated coverage | 90.30% | 80.90%–98.88% |
+| Raw mean interval width | 41.1432 | 31.6717–55.9474 |
+| Calibrated mean interval width | 188.0043 | 161.6586–227.1196 |
 
-Exact reproduction also requires the original Test 01 implementation, dependency versions, preprocessing procedure, and source dataset.
+Calibration improved coverage in every run. All intervals were valid, all 30 runs completed successfully, and every predefined acceptance criterion passed.
 
-## Scope and limitations
+**Result: PASS**
 
-- This was an early prototype test on a single train/test split.
-- The experiment does not establish generalization across datasets, random seeds, or distribution shifts.
-- Statistical significance does not by itself establish that an uncertainty measure is sufficiently strong or calibrated for operational use.
-- The reported percentile bounds are stochastic-dispersion intervals, not validated predictive-confidence guarantees.
-- No safety-critical, clinical, financial, or autonomous decision should rely on this prototype result.
+## Validation Test 04 — Cross-Dataset Generalization
 
-## Test status
+### Objective
 
-**FEASIBILITY EXPERIMENT — NO CALIBRATION CLAIM**
+Evaluate whether SUANR_V2 maintains predictive accuracy and calibrated 90% conformal intervals across regression datasets with different statistical characteristics.
 
-The test successfully identified a potentially useful uncertainty signal and, equally importantly, documented that the original percentile-interval method was not calibrated.
+### Datasets
 
-## Project
+- Diabetes — built-in control dataset
+- California Housing — real-world housing regression dataset
+- Friedman #1 — synthetic nonlinear regression dataset
 
-**SUANR_V2**  
-Creator: Martin Pitre  
-Motto: *The incredible becomes credible through evidence.*
+### Final results
 
+| Dataset | MAE | RMSE | Calibrated coverage | Calibration error | Result |
+|---|---:|---:|---:|---:|---|
+| Diabetes | 45.9736 | 56.4954 | 91.01% | +1.01 percentage points | PASS |
+| California Housing | 0.3606 | 0.5219 | 89.92% | −0.08 percentage points | PASS |
+| Friedman #1 | 0.9597 | 1.2072 | 85.50% | −4.50 percentage points | PASS |
+
+All datasets satisfied the declared 85%–95% coverage range and ±5 percentage-point calibration-error threshold. The completed run provided evidence that the calibration framework was not limited to the original Diabetes dataset.
+
+**Result: PASS — Phase 1 completion supported**
+
+## Overall interpretation
+
+Phase 1 produced evidence for four progressively stronger conclusions:
+
+- Stochastic prediction dispersion alone did not create reliable 90% intervals.
+- Split-conformal calibration substantially corrected interval undercoverage.
+- Calibrated coverage remained stable across 30 repeated data splits.
+- The calibrated framework generalized across real-world and synthetic regression datasets in the final cross-dataset test.
+
+These results support continued evaluation of SUANR_V2. They do not establish universal performance, production readiness, or superiority over established machine-learning methods.
+
+## Reproducibility
+
+Run each validation script in a Python environment containing the dependencies used by that test. The principal packages are:
+
+```text
+numpy
+pandas
+scipy
+scikit-learn
+matplotlib
+```
+
+Test 01 also imports the frozen SUANR_V1 implementation:
+
+```python
+from suanr_v1 import SUANR_v1
+```
+
+Place `suanr_v1.py` where Python can import it before running Test 01.
+
+Example:
+
+```bash
+python SUANR_V2_Test_01_90_Percent_Predictive_Interval.py
+```
+
+Where supported, the scripts generate machine-readable CSV and JSON evidence files, figures, execution summaries, and packaged validation artifacts.
+
+## Scientific boundaries
+
+- Predictive-interval coverage is empirical and specific to the declared datasets, partitions, seeds, and configurations.
+- Conformal prediction provides a marginal coverage guarantee under its statistical assumptions; it does not guarantee correct coverage for every individual observation or subgroup.
+- Wider intervals can improve coverage while reducing sharpness and practical usefulness.
+- Test 01 is retained as evidence of the uncalibrated baseline limitation, not as evidence of successful 90% calibration.
+- Phase 1 validates the experimental framework under controlled conditions. Independent replication and broader external validation remain necessary.
+
+## Project status
+
+Phase 1 is complete. Subsequent SUANR_V2 work moves from foundational validation toward comparative benchmarking, distribution-shift testing, confidence-level analysis, reduced-data evaluation, and integration research.
+
+## Author
+
+**Martin Pitre**  
+SUANR_V2 Project
+
+> The incredible becomes credible through evidence.
+
+## Citation
+
+If you use or discuss this validation package, please cite the project, version, test number, repository URL, and access date. See the repository's `CITATION.cff` file when available.
+
+## License
+
+See the `LICENSE` and `NOTICE` files in the repository for permitted use and attribution requirements.
