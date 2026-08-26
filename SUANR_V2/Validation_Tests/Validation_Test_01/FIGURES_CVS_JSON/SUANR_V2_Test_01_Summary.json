@@ -1,0 +1,38 @@
+{
+  "test_name": "SUANR_V2 Predictive Interval Prototype Test 01",
+  "status": "Feasibility experiment \u2014 no calibration claim",
+  "configuration": {
+    "test_size": 0.2,
+    "split_random_state": 42,
+    "model_random_state": 42,
+    "hidden_layer_sizes": [
+      64,
+      32
+    ],
+    "stochastic_noise": 0.05,
+    "n_samples": 50,
+    "lower_percentile": 5.0,
+    "upper_percentile": 95.0
+  },
+  "metrics": {
+    "n_test_observations": 89,
+    "mae": 41.58304006076697,
+    "rmse": 51.97806722009834,
+    "empirical_coverage": 0.0449438202247191,
+    "target_coverage": 0.9,
+    "coverage_gap": -0.8550561797752809,
+    "mean_interval_width": 11.888622679226255,
+    "median_interval_width": 12.032443154057745,
+    "min_interval_width": 6.309218584649386,
+    "max_interval_width": 17.212198595013675,
+    "pearson_uncertainty_error": 0.3396225354170418,
+    "pearson_uncertainty_error_pvalue": 0.0011297272647060972,
+    "spearman_uncertainty_error": 0.28529111338100105,
+    "spearman_uncertainty_error_pvalue": 0.006729379640156627,
+    "pearson_entropy_error": -0.15206954846202259,
+    "pearson_entropy_error_pvalue": 0.15484369283472635,
+    "spearman_entropy_error": -0.0961865849506299,
+    "spearman_entropy_error_pvalue": 0.36989181433676294
+  },
+  "interpretation_boundary": "The 5th\u201395th percentile interval reflects dispersion from input-noise stochastic sampling. It is not a validated 90% prediction interval unless empirical calibration is demonstrated."
+}
